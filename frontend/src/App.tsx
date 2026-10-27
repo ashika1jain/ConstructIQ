@@ -8,7 +8,9 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API = "http://127.0.0.1:8000";
+
+const API = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+
 
 type Module = "Dashboard" | "Site Safety" | "Crack Analysis" | "Project Planning" | "Real Estate Valuation" | "AI Assistant" | "Weather Advisory";
 type Finding = { hazard: string; severity: string; description: string; recommendation: string };
