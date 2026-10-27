@@ -4,7 +4,7 @@ import type { FormEvent, ReactNode } from "react";
 import {
   Activity, AlertTriangle, Building2, CalendarDays, CheckCircle2,
   CloudSun, FileImage, HardHat, Home, MessageSquare, Send, ShieldCheck,
-  UploadCloud, X, MapPin, LoaderCircle, ClipboardList, RefreshCw
+  UploadCloud, X, MapPin, LoaderCircle,  RefreshCw
 } from "lucide-react";
 import "./App.css";
 
@@ -13,7 +13,17 @@ const API = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 
 type Module = "Dashboard" | "Site Safety" | "Crack Analysis" | "Project Planning" | "Real Estate Valuation" | "AI Assistant" | "Weather Advisory";
-type Finding = { hazard: string; severity: string; description: string; recommendation: string };
+
+type Finding = {
+  hazard?: string;
+  defect?: string;
+  severity: string;
+  description: string;
+  recommendation?: string;
+  location_in_image?: string;
+  recommended_next_step?: string;
+};
+
 type ImageResult = { message: string; filename: string; size_bytes: number; analysis: any; disclaimer: string };
 
 const modules: { name: Module; desc: string; icon: typeof ShieldCheck }[] = [
