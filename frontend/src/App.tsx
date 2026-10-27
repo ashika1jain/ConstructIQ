@@ -49,8 +49,20 @@ function App() {
         <header className="topbar"><div><span>Workspace</span><span className="slash">/</span><strong>{active}</strong></div><span className="system-pill"><i/> Local demo</span></header>
         <div className="page">
           {active === "Dashboard" ? <Dashboard onOpen={setActive}/> :
-            active === "Site Safety" ? <ImageModule kind="safety" onBack={() => setActive("Dashboard")}/> :
-            active === "Crack Analysis" ? <ImageModule kind="cracks" onBack={() => setActive("Dashboard")}/> :
+            active === "Site Safety" ? (
+  <ImageModule
+    key="site-safety"
+    kind="safety"
+    onBack={() => setActive("Dashboard")}
+  />
+) :
+active === "Crack Analysis" ? (
+  <ImageModule
+    key="crack-analysis"
+    kind="cracks"
+    onBack={() => setActive("Dashboard")}
+  />
+) :
             active === "Project Planning" ? <Planning onBack={() => setActive("Dashboard")}/> :
             active === "Real Estate Valuation" ? <Valuation onBack={() => setActive("Dashboard")}/> :
             active === "AI Assistant" ? <Assistant onBack={() => setActive("Dashboard")}/> :

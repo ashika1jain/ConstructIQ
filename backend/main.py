@@ -240,11 +240,11 @@ def get_client():
         )
     return genai.Client(
         api_key=API_KEY,
-        http_options=types.HttpOptions(timeout=45000),
+        http_options=types.HttpOptions(timeout=120000),
     )
 
 
-async def run_interaction(model_input: Any, timeout_seconds: int = 50) -> str:
+async def run_interaction(model_input: Any, timeout_seconds: int = 125) -> str:
     client = get_client()
     try:
         result = await asyncio.wait_for(
